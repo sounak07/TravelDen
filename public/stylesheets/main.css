@@ -123,6 +123,11 @@ nav {
     height:40px;
 }
 
+#nopst{
+    height:480px;
+    width:860px;
+}
+
 /*profile page styles*/
 #camp{
     font-family:'Chelsea Market', 'san-serief';
@@ -163,5 +168,9 @@ nav {
      #camp{
          padding-left:22px;
      }
+     #nopst{
+        height:250px;
+        width:380px;
+    }
      
 }
