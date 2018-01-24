@@ -133,7 +133,7 @@ router.post("/forgot", function(req,res){
              service:"Gmail",
              auth:{
                  user:"sounakume@gmail.com",
-                 pass:"prhqkmorzyvrcpph"
+                 pass:process.env.GMAILPW
              }
          });
          var mailOptions={
@@ -207,7 +207,7 @@ router.post("/reset/:token", function(req,res){
              service:"Gmail",
              auth:{
                  user:"sounakume@gmail.com",
-                 pass:"prhqkmorzyvrcpph"
+                 pass:process.env.GMAILPW
              }
          });
          var mailOptions={
