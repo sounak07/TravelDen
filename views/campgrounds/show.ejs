@@ -1,0 +1,113 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">YelpCamp</p>
+            <div class="list-group">
+                <li class="list-group-item active">Category 1</li>
+                <li class="list-group-item">Category 2</li>
+                <li class="list-group-item">Category 3</li>
+            </div>
+            <p><strong>Address:</strong>
+            <br>
+                <%= campground.address; %>
+            </p>
+            <div id="map"></div>
+        </div>
+        <br>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img src="<%= campground.image; %>" class="img-responsive">
+                <div class="caption-full">
+                    <h4 class="pull-right">$<%= campground.price; %>/night</h4>
+                    <h4><a><%= campground.name; %></a></h4>
+                    <p><%= campground.description; %></p>
+                    <p><strong><em><%= campground.address; %></em></strong></p>
+                    <p>
+                        <em>Submitted By <a href="/users/<%= campground.author.id; %>"><strong><%= campground.author.username; %></strong></a>, <%= moment(campground.createdAt).fromNow(); %></em>
+                    </p>
+                    <br>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)||currentUser && currentUser.isAdmin) { %>
+                        <a href="/campgrounds/<%= campground._id %>/edit" class="ui orange inverted button" id="text"><i class="edit icon"></i> Edit Camp</a>
+                        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST"  class="delete">
+                            <button class="ui red inverted button" id="del"><i class="delete icon"></i> Delete Camp</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+            <div class="well">
+                <% if (currentUser){ %>
+                <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                    <div class="form-group">
+                        <input type="text" style="height:35px" id="a" name="comment[text]" class="form-control" placeholder="Write a comment...">
+                    </div>
+                    <button type="submit" class="ui teal button" id="buttonID">Submit Comment</button>
+                </form>
+                <br>
+                <% } else { %>
+                <div class="text-right">
+                    <p><a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add new comment</a></p>
+                </div>
+                <br>
+                <% } %>
+                
+                <% campground.comments.forEach(function(comment){ %>
+                <div class="panel panel-default">
+              <div class="panel-body">
+            
+            
+                        <div class="media">
+                          <div class="media-left media-middle">
+                              <% if (comment.author.picture){ %>
+                                  <img class="img-circle" width=64 height="65" class="media-object" src="<%= comment.author.picture %>" alt="">
+                              <% } else { %>
+                                  <img class="img-circle" width=64 height="65" class="media-object" src="https://images.unsplash.com/photo-1502051897604-58025075ce54?auto=format&fit=crop&w=1051&q=80" alt="">
+                              <% } %>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="/users/<%= comment.author.id; %>"><%= comment.author.name || comment.author.username %></a><small class="text-muted pull-right"> <%= moment(comment.createdAt).fromNow(); %> </small></h4>
+                            
+                            <p class="comment-text"><%= comment.text %></p>
+                            <% if(currentUser && comment.author.id && comment.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+                                <!--<form method="POST" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=PUT">-->
+                                <!--    <div class="form-group">-->
+                                    
+                                <!--        <input class="form-control comment-edit-input" type="text" name="comment[text]" value="<%= comment.text %>">-->
+                                             
+                                             
+                                <!--    </div>-->
+                                <!--</form>                                    -->
+                                <a class="comment-edit btn btn-link" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                                
+                                <form class="delete comment-edit" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-link delete-button" >Delete</button>
+                                </form>
+                            <% } %>
+                          </div>
+                        </div>
+              </div>
+            </div>
+                
+            <% }); %>
+           </div>    
+        </div>
+    </div>
+</div>
+<script>
+      function initMap() {
+        var uluru = {lat: <%= campground.lat %>, lng: <%= campground.lng %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxmf4ZmV-9KWjAKVA3v2disaI-np7BLM4&libraries=places&callback=initMap"></script>
+<% include ../partials/footer %>

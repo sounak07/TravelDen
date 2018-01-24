@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+
+<div class="container ui middle aligned center aligned grid">
+    <div class="page-header">
+       <h1>Login</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user-plus"></i></div><input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-key"></i></div><input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>    
+                </div>
+                <button class="ui fluid large green submit inverted button">Login</button>
+            </form>
+            <br>
+            <p class="pull-left">New to us?<a href="/register">Sign Up</a></p>
+            <p class="pull-right"><a href="/forgot">Forgot password?</a></p>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<% include ./partials/footer %>

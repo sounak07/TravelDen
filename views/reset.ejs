@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+
+<div class="container ui middle aligned center aligned grid">
+    <div class="page-header">
+       <h1>Update password</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="/reset/<%= token %>" method="POST">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-key"></i></div><input type="password" class="form-control" name="password" id="password" placeholder="New Password">
+                    </div>    
+                    <div class="alert alert-warning" role="alert" id="enter">Enter a password longer than 7 characters</div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-key"></i></div><input type="password" name="confirm" placeholder="Confirm Password" id="confirm" class="form-control">
+                    </div>
+                     <div class="alert alert-warning" role="alert" id="conf">Please confirm your password</div>
+                </div>
+                <button class="ui fluid large green submit inverted button" id="submit">Update Password</button>
+            </form>
+            <br>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<% include ./partials/footer %>

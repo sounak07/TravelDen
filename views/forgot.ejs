@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class="container ui middle aligned center aligned grid">
+    <div class="page-header">
+       <h1>Password Reset</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="/forgot" method="POST">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-at"></i></div><input type="text" class="form-control" name="email"  autofocus placeholder="Enter registered Email">
+                    </div>    
+                </div>
+                <button class="ui fluid large blue submit inverted button">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<% include ./partials/footer %>

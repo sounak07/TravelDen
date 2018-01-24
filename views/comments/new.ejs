@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="container ui middle aligned center aligned grid">
+    <div class="page-header">
+       <h1>Edit Your Comment</h1>
+    </div>
+    <div class="row">
+        
+                <div class="col-sm-4">
+                
+                    <form action="/campgrounds/<%= campground._id %>/comments" method="POST" id="a">
+                        <div class="form-group">
+                            <input type="text" id="b" name="comment[text]" class="form-control" placeholder="Comments">
+                        </div>
+                        <button type="submit" class="ui fluid large blue submit inverted button">Submit</button>
+                        <br>
+                        <a href="/campgrounds">Go Back</a>
+                    </form>
+                </div>
+                
+        </div> 
+        
+        
+    </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>      
+<% include ../partials/footer %>
+

@@ -1,0 +1,75 @@
+<% include ../partials/header %>
+
+<div class="container">
+    
+    <div class="row">
+        <div class="page-header ui floating message"><h1 class="col-md-offset-5"><%= user.firstname %>'s Profile</h1></div>
+        <div class="col-md-3">
+        <div class="ui link cards"  id="card">    
+        <div class="card">
+        <div class="image">
+           <% if(user.picture){ %> 
+              <img class="img-circle" src="<%= user.picture %>">
+          <% }else{ %>
+              <img class="img-circle" src="https://images.unsplash.com/photo-1502051897604-58025075ce54?auto=format&fit=crop&w=1051&q=80">
+          <% } %>
+        </div>
+        <div class="content">
+          <h3><div class="header"><%= user.firstname+" "+user.lastname %></div></h3>
+          <div class="meta">
+            <h4><a><i class="fa fa-at"></i> <%= user.username %></a></h4>
+          </div>
+          <div class="description">
+                <h5><%= user.firstname %> is an enthusiastic traveller who likes to explore new cultures and meet new people.</h5>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="ui blue button">
+            <i class="fa fa-envelope"></i>
+            <%= user.email %>
+          </span><br><hr>
+          <% if(user.isAdmin){ %>
+          <span class="ui red button">
+            <i class="fa fa-user-md"></i>
+            Admin
+          </span>
+          <% } %>
+        </div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="col-md-9">
+      <h1 id="camp"><%= user.firstname %>'s Campgrounds</h1>
+      <hr>
+      <% var camps = campgrounds.slice() %>
+      <% if(camps.length){ %>
+      <% camps.forEach(function(camp){ %>
+        <div class="col-md-6 col-sm-6">
+            <div class="thumbnail">
+            <a href="/campgrounds/<%= camp._id %>">
+            <% if (camp.image) { %> 
+              <img src="<%= camp.image %>">
+            <% } else { %>
+              <img src="http://i.imgur.com/kntSEEW.jpg">
+            <% } %>  
+               <div class="caption">
+                  <a href="/campgrounds/<%= camp._id %>"><h3><%= camp.name %></h3></a>
+                  <p id="city"><%= camp.address %></p>
+               </div>
+             </div>
+            </a>
+         </div>
+          <% }); %>
+        <% } else  { %>
+          <div>
+             <img  height="480" width="860" src="https://www.dailydot.com/wp-content/uploads/e52/31/87610fa1a0ae891d.png">
+          </div>
+        
+      <% } %>
+      
+    </div>
+</div>
+</div>
+<br><br>
+<% include ../partials/footer %>

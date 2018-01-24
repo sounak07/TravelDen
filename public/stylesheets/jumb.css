@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+body {
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'Chelsea Market', 'san-serief';
+}
+
+h1 {
+	font-weight:700;
+	letter-spacing: 2px;
+}
+
+.jumbotron {
+	width: 100%;
+	min-height: 480px;
+	background: url('https://s122939.gridserver.com/clients/conversant/images/driving.jpg') center center;
+	background-size: cover;
+	opacity: 1;
+	display: table;
+	width: 100%;
+	position: relative;
+	border-radius: 0px;
+	color: white;
+	top: -20px;
+	-webkit-clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 85%);
+  clip-path: url(#poly);
+	overflow: hidden;
+	
+}
+
+.jumbotron .h1, .jumbotron h1 {
+    font-size: 50px;
+}
+
+#video-bg {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	min-width: 100%;
+	height: auto;
+	min-height: 100%;
+	background: #000;
+	z-index: -1;
+	/*background-size: cover;*/
+	opacity: 1;
+}
+#black {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	min-width: 100%;
+	height: auto;
+	min-height: 100%;
+	background: rgba(26,29,37,0.5);
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+.jumbotron {
+	min-height: 460px;
+}
+.jumbotron h1 {
+	font-size: 30px;
+}
+
+
+} /**** END 320 and 480 ****/

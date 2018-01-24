@@ -1,0 +1,62 @@
+<% include ./partials/header %>
+
+<div class="container ui middle aligned center aligned grid">
+    <div class="page-header">
+       <h1>Sign Up</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="/register" method="POST" id="register_form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user-plus"></i></div><input type="text" class="form-control" name="username" placeholder="Username" required>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-key"></i></div><input type="password" name="password" placeholder="Password" class="form-control" id="password">
+                    </div>
+                    <div class="alert alert-warning" role="alert" id="enter">Enter a password longer than 7 characters</div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-key"></i></div><input type="password" name="confirm" placeholder="Confirm Password" class="form-control" id="confirm">
+                    </div>
+                    <div class="alert alert-warning" role="alert" id="conf">Please confirm your password</div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div><input type="text" class="form-control" name="firstname" placeholder="First name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div><input type="text" class="form-control" name="lastname" placeholder="Last name" required>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div><input type="text" class="form-control" name="email" placeholder="Email" required>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-file-image-o"></i></div><input type="text" class="form-control" name="picture" placeholder="Profile Pic URL">
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user-secret"></i></div><input type="text" name="adminCode" placeholder="Admin Code(only for Admins)" class="form-control">
+                    </div>
+                </div>
+                <button class="ui fluid large green submit inverted button" id="submit">Sign Up</button>
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+    
+</div>
+<br><br>
+<% include ./partials/footer %>

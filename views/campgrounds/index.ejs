@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/jumb.css"></link>
+ <div class="jumbotron">
+   <div id="black"></div>
+  <video autoplay muted loop id="video-bg">
+     <source src="https://media.istockphoto.com/videos/rain-drops-falling-into-ground-slow-motion-video-id461651222" type="video/mp4">
+     <!--<source src="https://media.istockphoto.com/videos/group-of-friends-sailing-at-sunset-video-id469810534" type="video/mp4">-->
+  </video> -->
+  
+  <div class="animated fadeInDown">
+    <div class="container ui middle aligned center aligned grid">
+      <div class="col-md-12">
+        <h1><span class="glyphicon glyphicon-tent"></span>Welcome To TravelDen</h1>
+            <p>View Our handpicked travel destinations from all over the world</p>
+            <p>
+            <div class="row search-wrapper">    
+                <div class="col-md-8 col-md-offset-2 mobile-search">
+                    <form action="/campgrounds" method="GET">
+            		    <div class="input-group search-bar">
+                            <input type="text" class="form-control" name="search" id="search-query" placeholder="Search..." value="">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" id="quicksearch" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+        	</div>
+            </p>         
+            <p>
+               <a href="/campgrounds/new" class="massive ui blue button">Add a new destination</a>
+            </p>
+      
+     </div>
+      
+
+    </div>
+  </div>
+</div>
+<div class="container campground-display-header">
+    <div class="col-md-8"><h1 id="new">Newly Added Destinations</h1></div>
+        <div class="col-xs-4"><div id="addicon"><h2><a href="/campgrounds/new"> 
+        <i class="fa fa-plus-circle" id="addcamps" aria-hidden="true" alt="add new destination"></i></a></h2></div>
+        <div id="onhovericon">add a new destination</div> 
+    </div>
+</div>
+<div class="container">
+   <div class="row" style="display:flex; flex-wrap: wrap;">
+      <% campgrounds.forEach(function(camp){ %>
+         <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+            <a href="/campgrounds/<%= camp._id %>">
+            <% if (camp.image) { %> 
+              <img src="<%= camp.image %>">
+            <% } else { %>
+              <img src="http://i.imgur.com/kntSEEW.jpg">
+            <% } %>  
+               <div class="caption">
+                  <a href="/campgrounds/<%= camp._id %>"><h3><%= camp.name %></h3></a>
+                  <p id="city"><%= camp.address %></p>
+               </div>
+             </div>
+            </a>
+         </div>
+      <% }); %>   
+   </div>
+  
+</div>
+
+<% include ../partials/footer %>
+

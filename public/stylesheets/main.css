@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+/* CSS Document */
+body{
+    background: white;
+}
+nav {
+    font-family: 'Chelsea Market', 'san-serief';
+    padding-top:8px;
+    font-size:16px;
+    background: #2c3e50;
+}
+
+.navbar-inverse .navbar-brand{
+    font-size:23px;
+    position:relative;
+    top:-2px;
+}
+
+.col-md-3{
+    font-family: 'Raleway', sans-serif;
+}
+
+.thumbnail{
+   font-family: 'Raleway', sans-serif;
+   padding: 0;
+}
+
+.thumbnail .caption-full {
+   font-family: 'Raleway', sans-serif;
+   padding: 9px;
+} 
+
+#city{
+    padding-top: 5px;
+    font-size: 1.5rem;
+}
+
+.ui.button, .ui.buttons .button, .ui.buttons .or{
+    font-size: 1em;
+}
+
+.delete{
+    display: inline;
+}
+
+.comment-edit {
+    padding-left: 0;
+    padding-right: 8;
+    position:relative;
+    right: 9px;
+}
+
+.comment-text {
+    padding-top: 10px;
+    padding-right: 5px;
+}
+
+#message{
+    position: relative;
+    top: -13px;
+    width: 100%;
+    text-align:center;
+}
+
+/*submit bottons*/
+.ui.large.buttons .button, .ui.large.buttons .or, .ui.large.button{
+    font-size: 1.7rem;
+}
+
+.page-header {
+    font-family: 'Raleway', sans-serif;
+}
+
+.input-group .form-control{
+     height: 40px;
+     font-size: 16px;
+}
+
+#textarea {
+    height: 100px;
+}
+
+.btn-group-xs>.btn, .btn-xs{
+    width: 100%;
+    height: 28px;
+}
+
+/*map styles*/
+#map {
+	height: 400px;
+	width: 100%;
+	background-color: grey;
+}
+
+#onhovericon{
+    float: right;
+    visibility: hidden;
+    margin-top: -20px;
+}
+
+#addicon:hover ~ #onhovericon{
+    visibility: visible;
+}
+
+#addcamps {
+    font-size: 130%;
+    float: right;
+}
+
+.campground-display-header {
+    color: #999;
+    margin-bottom: 30px;
+    text-transform:none;
+    font-family: 'Raleway', sans-serif;
+}
+
+.col-md-12{
+    margin-top:50px;
+}
+
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+    height:40px;
+}
+
+/*profile page styles*/
+#camp{
+    font-family:'Chelsea Market', 'san-serief';
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+    
+    #addcamps {
+        position: relative;
+        top: -65px;
+        left: 231px;
+    }
+    #onhovericon{
+        position: relative;
+        top: -135px;
+        left: 231px;
+    }
+    #new{
+        width:50%;
+    }
+    #map {
+    	height: 250px;
+    	width: 100%
+    }
+    .media-heading{
+       font-size:12px;
+     }
+     ol,ul{
+         margin-right:40px;
+     }
+     .comment-text{
+         padding-top:5px;
+     }
+     /*profile page styles*/
+     #card{
+        margin-left: 16px;
+     }
+     #camp{
+         padding-left:22px;
+     }
+     
+}
