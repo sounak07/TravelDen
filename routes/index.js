@@ -142,7 +142,7 @@ router.post("/forgot", function(req,res){
            subject:"Password Reset Mail",
            html:"You are receiving this e-mail because you have requested a password reset for <b>TravelDen's</b> user account <b>"+user.username+"</b>.<br><br>"+
                 "Please click on the following link to complete the password reset process<br><br>"+
-                "https://webcamp-sounak0807.c9users.io/reset/"+token+"<br><br>"+
+                "https://aqueous-brook-22521.herokuapp.com/reset/"+token+"<br><br>"+
                 "If u didn't request this please ignore this mail and your password will remain unchanged<br><br>"+
                 "<b>Note</b>: This mail has an expiry time of <b>1 hour</b><br><br><br>"+
                 "Still in Doubt? Send your query to sounakume@gmail.com<br><br>"+
