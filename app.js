@@ -57,6 +57,13 @@ app.use(function(req,res, next){
    next();
 });
 
+app.get('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https')
+    res.redirect('https://aqueous-brook-22521.herokuapp.com'+req.url);
+  else
+    next(); /* Continue to other routes if we're not redirecting */
+});
+
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments/",commentsRoutes);
