@@ -25,7 +25,7 @@
                     <p><%= campground.description; %></p>
                     <p><strong><em><%= campground.address; %></em></strong></p>
                     <p>
-                        <em>Submitted By <a href="/users/<%= campground.author.id; %>"><strong><%= campground.author.username; %></strong></a>, <%= moment(campground.createdAt).fromNow(); %></em>
+                        <em>Submitted By <a href="/users/<%= campground.author.id; %>"><strong><%= campground.author.username; %></strong></a>, <%= moment(campground.date).fromNow(); %></em>
                     </p>
                     <br>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)||currentUser && currentUser.isAdmin) { %>
@@ -66,7 +66,7 @@
                               <% } %>
                           </div>
                           <div class="media-body">
-                            <h4 class="media-heading"><a href="/users/<%= comment.author.id; %>"><%= comment.author.name || comment.author.username %></a><small class="text-muted pull-right"> <%= moment(comment.createdAt).fromNow(); %> </small></h4>
+                            <h4 class="media-heading"><a href="/users/<%= comment.author.id; %>"><%= comment.author.name || comment.author.username %></a><small class="text-muted pull-right"> <%= moment(comment.date).fromNow(); %> </small></h4>
                             
                             <p class="comment-text"><%= comment.text %></p>
                             <% if(currentUser && comment.author.id && comment.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
