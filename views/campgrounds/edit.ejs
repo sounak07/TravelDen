@@ -18,13 +18,16 @@
                             <input type="number"  name="price" class="form-control"  value="<%= campground.price %>" min="0.01" step="0.01" >
                         </div>
                         <div class="form-group">
-                            <input type="text" name="address" id="search_term" class="form-control" value="<%= campground.address %>">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="image" class="form-control" value="<%= campground.image %>">
+                            <input type="text" name="address" id="search_term" class="form-control" value="<%= campground.address %>" required>
                         </div>
                         <div class="form-group">
                             <textarea id="textarea" type="text" name="description" class="form-control"><%= campground.description %></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="image" class="form-control" value="<%= campground.image %>" id="url_text">
+                        </div>
+                        <div class="form-group">
+                            <button class="ui button" type="button" id="upload_widget_opener">Upload with Widget</button>
                         </div>
                         <button type="submit" class="ui fluid large blue submit inverted button">Submit</button>
                         <br>
@@ -36,6 +39,19 @@
         
         
     </div>
+<script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script>
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+
+        cloudinary.openUploadWidget({ cloud_name: 'sounak', upload_preset: 'ky7dbhru'},
+                function(error, result) {
+                    console.log(error, result)
+                    // Push URL into text input
+                    document.getElementById('url_text').value = result[0].url;
+                });
+
+    }, false);
+</script>    
     <br><br>
 <% include ../partials/placeapi %>
 <% include ../partials/footer %>
