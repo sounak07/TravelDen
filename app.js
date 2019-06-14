@@ -12,7 +12,7 @@ var express    = require("express"),
     seedDB     = require("./seeds"),
     methodOverride = require("method-override");
 
-//requiring routes    
+//requiring route  
 var commentsRoutes   = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
